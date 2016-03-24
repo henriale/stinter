@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Stinters;
+
+use App\User;
+use Henriale\Stinter\Stinter;
+
+class DummyClass extends Stinter
+{
+    /**
+     * @param User $user
+     *
+     * @return bool
+     */
+    public function check(User $user)
+    {
+        return true;
+    }
+}

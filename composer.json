@@ -1,0 +1,22 @@
+{
+    "name": "henriale/stinter",
+    "description": "A plan/subscription resource auditor for Laravel.",
+    "keywords": ["auditor", "plan", "subscription", "checker", "laravel"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexandre Araujo",
+            "email": "alexandreh.araujo@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Henriale\\Stinter\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.6.0",
+        "illuminate/auth": "5.2.*",
+        "illuminate/console": "5.2.*"
+    }
+}
