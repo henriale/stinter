@@ -2,6 +2,7 @@
 
 namespace Henriale\Stinter;
 
+use Henriale\Stinter\Contracts\StinterInterface;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;

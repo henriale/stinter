@@ -1,6 +1,6 @@
 <?php
 
-namespace Henriale\Stinter;
+namespace Henriale\Stinter\Contracts;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 
