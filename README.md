@@ -30,7 +30,9 @@ class CreateSomething extends Stinter
 {
   public function check(Authenticatable $user)
   {
-      if ($user->something()->count() > 10) {
+      $basicPlanLimitation = 10;
+      
+      if ($user->something()->count() >= $basicPlanLimitation) {
         // user has too many
         return false;
       }
@@ -51,12 +53,21 @@ return [
 
 4 - Finally, use `\Gate` class passing the stint FQN to handle its permission:
 ```php
+<?php
 $userCan = \Gate::allows(\App\Stinters\CreateSomething::class);
 if ($userCan) {
   echo "user can create more stuffs";
 } else {
   echo "user cannot create more stuffs. he better upgrade his plan/subscription!";
-}
+} 
+?>
+
+<!-- using blade -->
+@can(\App\Stinters\CreateSomething::class)
+  // can
+@else
+  // cannot
+@endcan
 ```
 
 
