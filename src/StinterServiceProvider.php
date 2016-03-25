@@ -8,6 +8,7 @@ use Henriale\Stinter\Commands\StintMakeCommand;
 
 class StinterServiceProvider extends ServiceProvider
 {
+    const CONFIG_NAME = 'stinters';
     /**
      * Bootstrap the plan auditor services.
      *
@@ -16,7 +17,7 @@ class StinterServiceProvider extends ServiceProvider
     public function boot(GateContract $gate)
     {
         $this->publishes([
-            __DIR__.'/config/stinters.php' => config_path('stinters.php'),
+            __DIR__.'/config/stinters.php' => config_path(static::CONFIG_NAME . '.php'),
         ]);
 
         $this->registerStintAuditors($gate);
@@ -29,10 +30,10 @@ class StinterServiceProvider extends ServiceProvider
      */
     private function registerStintAuditors(GateContract $gate)
     {
-        $stints = (array) config('stints');
+        $stinters = (array) config(static::CONFIG_NAME);
 
-        foreach ($stints as $stint) {
-            new $stint($gate);
+        foreach ($stinters as $stinter) {
+            new $stinter($gate);
         }
     }
 
