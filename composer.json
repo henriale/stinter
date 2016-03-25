@@ -1,6 +1,6 @@
 {
     "name": "henriale/stinter",
-    "description": "A plan/subscription resource auditor for Laravel.",
+    "description": "A plan/subscription auditor for Laravel.",
     "keywords": ["auditor", "plan", "subscription", "checker", "laravel"],
     "license": "MIT",
     "authors": [
@@ -15,8 +15,9 @@
         }
     },
     "require": {
-        "php": ">=5.6.0",
+        "php": ">=5.5.0",
         "illuminate/auth": "5.2.*",
-        "illuminate/console": "5.2.*"
+        "illuminate/console": "5.2.*",
+        "illuminate/foundation": "5.2.*"
     }
 }

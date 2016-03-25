@@ -2,17 +2,17 @@
 
 namespace App\Stinters;
 
-use App\User;
 use Henriale\Stinter\Stinter;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class DummyClass extends Stinter
 {
     /**
-     * @param User $user
+     * @param Authenticatable $user
      *
      * @return bool
      */
-    public function check(User $user)
+    public function check(Authenticatable $user)
     {
         return true;
     }

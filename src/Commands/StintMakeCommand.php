@@ -1,6 +1,6 @@
 <?php
 
-namespace Henriale\Console\Commands;
+namespace Henriale\Stinter\Commands;
 
 use Illuminate\Console\GeneratorCommand;
 
@@ -18,7 +18,7 @@ class StintMakeCommand extends GeneratorCommand
      *
      * @var string
      */
-    protected $description = 'Create a new stint/auditor class';
+    protected $description = 'Create a new stint auditor class';
 
     /**
      * The type of class being generated.
@@ -34,7 +34,7 @@ class StintMakeCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-        return __DIR__.'../stubs/stint.stub';
+        return __DIR__.'/../stubs/stint.stub';
     }
 
     /**
@@ -46,18 +46,5 @@ class StintMakeCommand extends GeneratorCommand
     protected function getDefaultNamespace($rootNamespace)
     {
         return $rootNamespace.'\Stinters';
-    }
-
-    /**
-     * Build the class with the given name.
-     *
-     * Remove the base controller import if we are already in base namespace.
-     *
-     * @param  string  $name
-     * @return string
-     */
-    protected function buildClass($name)
-    {
-        return parent::buildClass($name);
     }
 }

@@ -4,12 +4,12 @@ namespace Henriale\Stinter;
 
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Support\ServiceProvider as ServiceProvider;
-use Henriale\Console\Commands\StintMakeCommand;
+use Henriale\Stinter\Commands\StintMakeCommand;
 
-class StintServiceProvider extends ServiceProvider
+class StinterServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap the plan constraints services.
+     * Bootstrap the plan auditor services.
      *
      * @param \Illuminate\Contracts\Auth\Access\Gate $gate
      */
@@ -23,11 +23,15 @@ class StintServiceProvider extends ServiceProvider
     }
 
     /**
+     * @todo take specific configs from stints
+     *
      * @param \Illuminate\Contracts\Auth\Access\Gate $gate
      */
     private function registerStintAuditors(GateContract $gate)
     {
-        foreach (config('stinters') as $stint) {
+        $stints = (array) config('stints');
+
+        foreach ($stints as $stint) {
             new $stint($gate);
         }
     }

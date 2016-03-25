@@ -2,7 +2,7 @@
 
 namespace Henriale\Stinter\Contracts;
 
-use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 interface StinterInterface
 {
