@@ -11,7 +11,7 @@
  *      Henriale\Stinter\Stinter:class,
  *
  *      // or
- * 
+ *
  *      'Henriale\Stinter\Stinter'
  *  ]
  *
