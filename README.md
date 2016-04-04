@@ -21,23 +21,23 @@ $ php artisan vendor:publish --provider="Henriale\Stinter\StintServiceProvider"
 
 1 - Create a restriction/stint class to control your resources:
 ```bash
-$ php artisan make:stint CreateSomething
+$ php artisan make:stint CreateProduct
 ```
 
 2 - Make some validation with it
 ```php
-class CreateSomething extends Stinter
+class CreateProduct extends Stinter
 {
+  protected $basicPlanLimitation = 10;
+  
   public function check(Authenticatable $user)
   {
-      $basicPlanLimitation = 10;
-      
-      if ($user->something()->count() >= $basicPlanLimitation) {
-        // user has too many
+      if ($user->products()->count() >= $this->basicPlanLimitation) {
+        // user has too many products
         return false;
       }
       
-      //user still can have more
+      //user still can have more products
       return true;
   }
 }
@@ -46,15 +46,23 @@ class CreateSomething extends Stinter
 3 - Now, register in `/config/stinters.php` so the auditor can check it when triggered
 ```php
 return [
-    \App\Stinters\CreateSomething::class
+    \App\Stinters\CreateProduct::class
 ];
 ```
 
 
 4 - Finally, use `\Gate` class passing the stint FQN to handle its permission:
 ```php
+<!-- using User model -->
 <?php
-$userCan = \Gate::allows(\App\Stinters\CreateSomething::class);
+if ($user->can(\App\Stinters\CreateProduct::class)) {
+  echo 'yes, he is able';
+}
+?>
+
+<!-- using Gate -->
+<?php
+$userCan = \Gate::allows(\App\Stinters\CreateProduct::class);
 if ($userCan) {
   echo "user can create more stuffs";
 } else {
@@ -63,7 +71,7 @@ if ($userCan) {
 ?>
 
 <!-- using blade -->
-@can(\App\Stinters\CreateSomething::class)
+@can(\App\Stinters\CreateProduct::class)
   // can
 @else
   // cannot
