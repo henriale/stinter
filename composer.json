@@ -14,11 +14,9 @@
             "Henriale\\Stinter\\": "src/"
         }
     },
-    "minimum-stability": "dev",
     "require": {
         "php": ">=5.5.0",
         "illuminate/auth": "5.2.*",
-        "illuminate/console": "5.2.*",
-        "henriale/stinter": "dev-master"
+        "illuminate/console": "5.2.*"
     }
 }

@@ -36,7 +36,7 @@ class Stinter implements StinterInterface
      */
     public function before(Authenticatable $user, $ability)
     {
-        //
+        // does nothing
     }
 
     /**
@@ -64,7 +64,7 @@ class Stinter implements StinterInterface
      */
     public function afterAllowed(Authenticatable $user, $ability, $arguments)
     {
-        //
+        // does nothing
     }
 
     /**
@@ -72,6 +72,6 @@ class Stinter implements StinterInterface
      */
     public function afterDenied(Authenticatable $user, $ability, $arguments)
     {
-        //
+        // does nothing
     }
 }
